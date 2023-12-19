@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: house-price-test-model
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: house-price-test-model
+  template:
+    metadata:
+      labels:
+        app: house-price-test-model
+    spec:
+      containers:
+      - name: house-price-test-model
+        image: 638603724695.dkr.ecr.us-east-1.amazonaws.com/house-price-image:house-price-test
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+
+
+
+# house-price:test ---> initial image name

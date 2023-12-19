@@ -20,6 +20,6 @@ y_pred = LR.predict(X)
 
 predicted_price = np.expm1(y_pred)
 
-print('average price of house_ten is :', predicted_price.round(3))
+print('average price of house_500 is :', predicted_price.round(3))
 
 

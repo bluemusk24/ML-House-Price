@@ -18,13 +18,13 @@ app = Flask('price')
 @app.route('/predict', methods=['POST'])
 def predict():
 
-    house_ten = request.get_json()
+    house = request.get_json()
 
-    X_test = dv.transform(house_ten)
+    X_test = dv.transform(house)
     y_pred = LR.predict(X_test)
 
     predicted_price = np.expm1(y_pred)
-    result = {'average price of house_ten is' : (float(predicted_price.round(3)))}
+    result = {'average price of house is' : (float(predicted_price.round(3)))}
 
     return jsonify(result)
 
